@@ -1,0 +1,10 @@
+[package]
+name = "trash"
+version = "0.1.0"
+authors = ["Andreas Meistad <andreas@meidev.co>"]
+edition = "2018"
+
+[dependencies]
+clap = "~2.33"
+chrono = "~0.4"
+
