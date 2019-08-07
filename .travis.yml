@@ -1,0 +1,13 @@
+os: osx
+language: rust
+rust:
+- stable
+script:
+- cargo build --release
+deploy:
+  provider: releases
+  api_key:
+    secure: rdd13uDekUBCdfjSfP/zFU+Dp2K1L9IgIY7vLTvvJ3y3hCUAisiFjugXFhu1lDZ7Xq5xx6Ut/NEZQTPFEeXaTsxdDJeGaxrynvwgyX5yxwcMqZlCDjhWNKy3q11n6ctGRZ9iuzWvrLjnGh11goMWMT5Gn303ICxn9pKoXrRNQFQsSox335AIRxfHETWtqsOZkX8c8l/7cQle3Y7BDts10g63qalb847jq6O70F7SapG07PMSQDYhMRQhxjhaBuFv/BE/eiFq0GUMNYpkp2wqjvM+bC7e8azXiWsPFgRtemR6hILOr2dELj8DpfYMCEFMdmlBYONqtS9EtbxqCcIysO0fWBHiN2mTPZQJJpMA/wsERAjOncYotaghzU7KG3cgXJvs6UQb44Z73qa3BAvI27lJGaBzFJixqsveVk/Tg7T1bZ/tCSGq9a5oRxmqh9B45RlG6q9AMmCnJruLnO1M7k0bYZ6AySWYUhmwDsh2KoPX5fwy4FWc6TPu9xDs4uOQwjTMhaMebVry3BPM8xR+Z3XbQcX78hyHrsf6xivXu68wUMDJ1UPFY2t5LnyLscxSky8kTg+UmnULQ7+Gvux3Cqgjoe8zBD+KWsdZRk6vEi/901v0VRwJ2dwTIGZCz3vQevl40cCTcevfPnumwscyLfVLHalOEmdWPXoCd5Y8vR4=
+  file: "./target/release/trash"
+  on:
+    repo: ameistad/trash
