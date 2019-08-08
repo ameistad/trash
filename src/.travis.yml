@@ -56,3 +56,6 @@ matrix:
     install: true
     <<: *DEPLOY_TO_GITHUB
 
+notifications:
+  email:
+    on_success: never
