@@ -1,5 +1,6 @@
 use std::{env, fs};
 use std::process::Command;
+use std::path::Path;
 
 extern crate clap;
 use clap::{App, Arg};
@@ -54,18 +55,16 @@ impl TrashItems {
             .map(|item| item.unwrap().file_name().into_string().unwrap())
             .collect();
 
-        let current_directory_items: Vec<String> = fs::read_dir(env::current_dir().unwrap())
-            .expect("Failed to get current directory.")
-            .map(|item| item.unwrap().file_name().into_string().unwrap())
-            .collect();
-
+        let current_directory = env::current_dir().unwrap();
 
         let mut trash_items = Vec::new();
         let mut trash_items_duplicates = Vec::new();
         let mut trash_items_not_found = Vec::new();
 
         for item in items_to_trash {
-            if !current_directory_items.contains(&item) {
+            let item_exist = Path::new(&current_directory).join(&item).exists();
+
+            if !item_exist {
                 trash_items_not_found.push(item);
             } else if trash_directory_items.contains(&item) {
                 let timestamp = Local::now().format("%H-%M-%S-%6f").to_string();
