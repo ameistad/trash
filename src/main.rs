@@ -113,11 +113,3 @@ impl TrashItems {
         println!("Moved {} items to {}", self.trash_items.len() + self.trash_items_duplicates.len(), self.trash_directory);
     }
 }
-
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn exploration() {
-        assert_eq!(2 + 2, 4);
-    }
-}
