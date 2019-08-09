@@ -14,7 +14,7 @@ fn main() {
     let matches = App::new("trash")
         .author("Andreas Meistad <andreas@meidev.co>")
         .about("Moves files and folders in the Trash")
-        .version("v0.1.0")
+        .version("v0.1.1")
         .arg(
             Arg::with_name("items_to_trash")
             .required(true)
