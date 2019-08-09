@@ -17,7 +17,7 @@ DEPLOY_TO_GITHUB: &DEPLOY_TO_GITHUB
     - name="trash-$TRAVIS_TAG-$TARGET"
     - mkdir $name
     - cp target/$TARGET/release/trash $name/
-    - cp README.md LICENSE-MIT LICENSE-APACHE $name/
+    - cp README.md LICENSE $name/
     - tar czvf $name.tar.gz $name
   deploy:
     provider: releases
@@ -33,7 +33,7 @@ matrix:
 
   - name: Tests
     env: RUST_BACKTRACE=1
-    rust: nightly
+    rust: stable
     script:
     - cargo test --locked
 
