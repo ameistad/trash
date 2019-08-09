@@ -110,6 +110,13 @@ impl TrashItems {
     }
 
     fn message (&self) {
-        println!("Moved {} items to {}", self.trash_items.len() + self.trash_items_duplicates.len(), self.trash_directory);
+        if &self.trash_items_not_found.len() > &0 {
+            let not_found_items = &self.trash_items_not_found.join(" ");
+            println!("Couldn't find {}", not_found_items);
+        }
+
+        if &self.trash_items.len() > &0 {
+            println!("Moved {} items to {}", self.trash_items.len() + self.trash_items_duplicates.len(), self.trash_directory);
+        }
     }
 }
